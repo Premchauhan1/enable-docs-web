@@ -1,0 +1,219 @@
+.scroll-indicator-container {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 900;
+  opacity: 0;
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.2));
+}
+
+.scroll-indicator-container::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -10px;
+  right: -10px;
+  background: radial-gradient(ellipse at center, rgba(88, 101, 242, 0.03) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.scroll-indicator-container.visible {
+  opacity: 1;
+}
+
+.scroll-track {
+  position: relative;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, #5865F2, #7B6EF6, #A45EF2);
+  border-radius: 4px;
+  transition: height 0.1s ease;
+  box-shadow: 0 0 8px rgba(88, 101, 242, 0.5);
+}
+
+.scroll-marker-top,
+.scroll-marker-bottom {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 8px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-marker-top {
+  background: #5865F2;
+  box-shadow: 0 0 10px rgba(88, 101, 242, 0.5);
+}
+
+.scroll-marker-bottom {
+  background: #A45EF2;
+  box-shadow: 0 0 10px rgba(164, 94, 242, 0.5);
+}
+
+.scroll-tooltip {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 12, 16, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scroll-marker-top .scroll-tooltip,
+.scroll-marker-bottom .scroll-tooltip,
+.scroll-section-marker .scroll-tooltip {
+  opacity: 0;
+  transform: translateY(-50%) translateX(10px);
+}
+
+.scroll-marker-top:hover .scroll-tooltip,
+.scroll-marker-bottom:hover .scroll-tooltip,
+.scroll-section-marker:hover .scroll-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.scroll-sections {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+.scroll-section-marker {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  position: relative;
+  cursor: pointer;
+}
+
+.scroll-section-marker.active {
+  background: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.scroll-section-marker.current {
+  background: #A45EF2;
+  transform: scale(1.4);
+  box-shadow: 0 0 15px rgba(164, 94, 242, 0.6);
+}
+
+.scroll-section-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.scroll-section-marker.active::after {
+  animation: ripple 1.5s infinite ease-out;
+}
+
+@keyframes ripple {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* Create a nice hover effect for the scroll indicator */
+.scroll-indicator-container:hover .scroll-track {
+  width: 4px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.scroll-indicator-container:hover .scroll-progress {
+  box-shadow: 0 0 12px rgba(88, 101, 242, 0.7);
+}
+
+.scroll-indicator-container:hover .scroll-section-marker {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.scroll-indicator-container:hover .scroll-section-marker.active {
+  transform: scale(1.5);
+  background: white;
+}
+
+.scroll-indicator-container:hover .scroll-section-marker.current {
+  transform: scale(1.7);
+  background: #A45EF2;
+  box-shadow: 0 0 20px rgba(164, 94, 242, 0.7);
+}
+
+.scroll-indicator-container:hover .scroll-marker-top,
+.scroll-indicator-container:hover .scroll-marker-bottom {
+  width: 10px;
+  height: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .scroll-indicator-container {
+    right: 10px;
+    height: 50vh;
+  }
+}
+
+/* Hide on very small screens */
+@media (max-width: 480px) {
+  .scroll-indicator-container {
+    display: none;
+  }
+}
+
+/* Animation for the scroll indicator */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.scroll-marker-top {
+  animation: pulse 2s infinite ease-in-out;
+}

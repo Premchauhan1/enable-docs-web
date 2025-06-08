@@ -1,0 +1,279 @@
+.why-enabledocs-section {
+  padding: 4rem 0;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hexagon grid background */
+.why-enabledocs-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%235865F2' fill-opacity='0.03' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* Gradient overlays */
+.why-enabledocs-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(88, 101, 242, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(164, 94, 242, 0.08) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.why-enabledocs-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.reasons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+  perspective: 1000px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.reason-card {
+  background-color: rgba(24, 26, 32, 0.7);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 3rem 2rem;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+
+.reason-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  z-index: 1;
+}
+
+.reason-card:nth-child(2)::before {
+  background: var(--gradient-purple);
+}
+
+.reason-card:nth-child(3)::before {
+  background: var(--gradient-green);
+}
+
+.reason-card:nth-child(4)::before {
+  background: var(--gradient-orange);
+}
+
+.reason-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.03) 0%, 
+    rgba(255, 255, 255, 0) 30%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.reason-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.reason-card:nth-child(1):hover {
+  box-shadow: 0 15px 30px rgba(88, 101, 242, 0.2);
+}
+
+.reason-card:nth-child(2):hover {
+  box-shadow: 0 15px 30px rgba(164, 94, 242, 0.2);
+}
+
+.reason-card:nth-child(3):hover {
+  box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+}
+
+.reason-card:nth-child(4):hover {
+  box-shadow: 0 15px 30px rgba(254, 100, 11, 0.2);
+}
+
+.reason-icon {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+  background-color: rgba(88, 101, 242, 0.1);
+  box-shadow: 0 0 30px rgba(88, 101, 242, 0.3);
+  animation: morphing 10s linear infinite alternate;
+  transition: all 0.3 ease;
+}
+
+.reason-card:nth-child(2) .reason-icon {
+  background-color: rgba(164, 94, 242, 0.1);
+  box-shadow: 0 0 30px rgba(164, 94, 242, 0.3);
+  animation-delay: 1s;
+}
+
+.reason-card:nth-child(3) .reason-icon {
+  background-color: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+  animation-delay: 2s;
+}
+
+.reason-card:nth-child(4) .reason-icon {
+  background-color: rgba(254, 100, 11, 0.1);
+  box-shadow: 0 0 30px rgba(254, 100, 11, 0.3);
+  animation-delay: 3s;
+}
+
+@keyframes morphing {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+.reason-card:hover .reason-icon {
+  transform: scale(1.1) translateZ(20px);
+}
+
+.reason-title {
+  font-size: 1.7rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  transform: translateZ(10px);
+}
+
+.reason-card:nth-child(1) .reason-title {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reason-card:nth-child(2) .reason-title {
+  background: var(--gradient-purple);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reason-card:nth-child(3) .reason-title {
+  background: var(--gradient-green);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reason-card:nth-child(4) .reason-title {
+  background: var(--gradient-orange);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reason-description {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+  transform: translateZ(5px);
+}
+
+/* Hover state shine effect */
+.reason-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-primary);
+  z-index: 1;
+}
+
+.reason-card:hover::after {
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0) 40%
+  );
+}
+
+@media (max-width: 960px) {
+  .reasons-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .reason-card {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .reason-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .reasons-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .why-enabledocs-section {
+    padding: 6rem 0;
+  }
+  
+  .reason-card:hover {
+    transform: translateY(-10px);
+  }
+}

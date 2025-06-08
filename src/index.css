@@ -1,10 +1,94 @@
+:root {
+  --primary-color: #5865F2;
+  --primary-light: rgba(88, 101, 242, 0.15);
+  --primary-dark: #454FBF;
+  --accent-color-1: #FF7EDB;
+  --accent-color-2: #10B981;
+  --accent-color-3: #FE640B;
+  --bg-dark: #0A0C10;
+  --bg-card: #181A20;
+  --bg-gradient: linear-gradient(135deg, #111318 0%, #0A0C10 100%);
+  --text-light: #FFFFFF;
+  --text-bright: #F0F4FF;
+  --text-muted: #A0AECA;
+  --gradient-primary: linear-gradient(to right, #5865F2, #7B6EF6);
+  --gradient-purple: linear-gradient(to right, #A45EF2, #FF7EDB);
+  --gradient-green: linear-gradient(to right, #10B981, #3ABAB4);
+  --gradient-orange: linear-gradient(to right, #FE640B, #FF974A);
+  --glow-blue: 0 0 25px rgba(88, 101, 242, 0.6);
+  --glow-purple: 0 0 25px rgba(164, 94, 242, 0.6);
+  --glow-green: 0 0 25px rgba(16, 185, 129, 0.5);
+  --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7);
+  --card-highlight: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --neon-blue: 0 0 8px #5865F2, 0 0 15px rgba(88, 101, 242, 0.5);
+  --neon-purple: 0 0 8px #A45EF2, 0 0 15px rgba(164, 94, 242, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  font-weight: 800;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 code {
