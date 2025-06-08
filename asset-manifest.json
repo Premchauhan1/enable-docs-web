@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/enable-docs-web/static/css/main.8ecf5018.css",
+    "main.js": "/enable-docs-web/static/js/main.83331dbb.js",
+    "static/js/453.2da2d92c.chunk.js": "/enable-docs-web/static/js/453.2da2d92c.chunk.js",
+    "static/media/computer-screen-with-accessbility-word-graphic-popup.jpg": "/enable-docs-web/static/media/computer-screen-with-accessbility-word-graphic-popup.f760a690f92829c96556.jpg",
+    "static/media/17973.jpg": "/enable-docs-web/static/media/17973.cbb84e8b729235b3d8d2.jpg",
+    "static/media/8767132.jpg": "/enable-docs-web/static/media/8767132.7b3f25615d60cff4b49f.jpg",
+    "index.html": "/enable-docs-web/index.html",
+    "main.8ecf5018.css.map": "/enable-docs-web/static/css/main.8ecf5018.css.map",
+    "main.83331dbb.js.map": "/enable-docs-web/static/js/main.83331dbb.js.map",
+    "453.2da2d92c.chunk.js.map": "/enable-docs-web/static/js/453.2da2d92c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ecf5018.css",
+    "static/js/main.83331dbb.js"
+  ]
+}
