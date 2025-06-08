@@ -71,17 +71,20 @@ const Navbar = () => {
         
         {/* Mobile Navigation Toggle */}
         <div className="mobile-menu-toggle" onClick={toggleSidebar}>
-          {isOpen ? <FaTimes /> : <FaBars />}
+          <FaBars />
         </div>
       </div>
 
       {/* Sidebar for Mobile */}
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+        <div className="sidebar-close" onClick={toggleSidebar}>
+          <FaTimes />
+        </div>
         <ul className="sidebar-links">
           <li><a href="#home" onClick={handleLinkClick}>Home</a></li>
           <li><a href="#services" onClick={handleLinkClick}>Services</a></li>
           <li><a href="#about" onClick={handleLinkClick}>About</a></li>
-          <li><a href="#contact" onClick={handleLinkClick}>Contact Us</a></li>
+          <li><a href="#contact" onClick={handleLinkClick}>Contact</a></li>
         </ul>
       </div>
       
