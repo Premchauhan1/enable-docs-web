@@ -28,7 +28,7 @@ function Services() {
       title: "Web Content Accessibility",
       subtitle: "Create inclusive digital experiences",
       description: "We help you build and maintain inclusive web experiences that comply with accessibility standards and regulations. Our comprehensive web accessibility services ensure your digital presence is accessible to users of all abilities.",
-      imageSrc: require("./8767132.jpg"),
+      imageSrc: require("./computer-screen-with-accessbility-word-graphic-popup.jpg"),
       icon: <FaCode />,
       features: [
         { text: "WCAG 2.1 compliance audits" },
@@ -44,7 +44,7 @@ function Services() {
       title: "Alt Text Writing",
       subtitle: "Precise image descriptions for accessibility",
       description: "We provide accurate and context-driven image descriptions that make your visual content accessible to everyone. Our specialized alt text services ensure your images convey the same information to all users, regardless of visual ability.",
-      imageSrc: require("./computer-screen-with-accessbility-word-graphic-popup.jpg"),
+      imageSrc: require("./8767132.jpg"),
       icon: <FaImage />,
       features: [
         { text: "Alt text for charts, infographics, and diagrams" },
